@@ -1,4 +1,7 @@
-Create a virtual environment and activate it: 
+The Course catalog app link: http://goldigor.pythonanywhere.com/
+---------------------------------------------
+
+Create a virtual environment and activate it:
 python -m venv myvenv
 source myvenv\Scriptes\activate
 
@@ -9,3 +12,6 @@ pip install -r requirements.txt
 
 Run the server:
 python manage.py runserver
+
+
+
