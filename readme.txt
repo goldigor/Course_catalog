@@ -10,8 +10,7 @@ Install the packages:
 pip install -r requirements.txt
 
 
-Migrate the DB:
-python manage.py makemigrations catalog
+Lunch migration script:
 python manage.py migrate catalog
 
 

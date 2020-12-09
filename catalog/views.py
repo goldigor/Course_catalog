@@ -33,7 +33,7 @@ def course_new(request):
 def course_edit(request, pk):
     course = get_object_or_404(Course, pk=pk)
     if request.method == "POST":
-        form = CourseForm(request.POST, instance=course)
+        form = CourseForm(request.POST, request.FILES, instance=course)
         if form.is_valid():
             course = form.save(commit=False)
             course.published_date = timezone.now()

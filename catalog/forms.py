@@ -7,8 +7,8 @@ class CourseForm(forms.ModelForm):
         model = Course
         fields = ('title', 'text', 'price', 'currency', 'start_date', 'end_date', 'photo',)
         widgets = {
-            'start_date': forms.DateTimeInput(attrs={'placeholder': 'DD.MM.YYYY'}),
-            'end_date': forms.DateTimeInput(attrs={'placeholder': 'DD.MM.YYYY'}),
+            'start_date': forms.DateInput(attrs={'placeholder': 'DD.MM.YYYY'}),
+            'end_date': forms.DateInput(attrs={'placeholder': 'DD.MM.YYYY'}),
         }
         labels = {
             'title': 'Название курса',
