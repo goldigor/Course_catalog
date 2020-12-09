@@ -1,0 +1,33 @@
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+{% if courses %}
+{% for course in courses %}
+<div class="course">
+    <table>
+        <tr>
+            <td rowspan="3">
+                <img src={{ course.photo.url}} alt="">
+            </td>
+            <td>
+                <h1>
+                    <a href="{% url 'course_detail' pk=course.pk %}">{{ course.title }}</a>
+                </h1>
+            </td>
+        </tr>
+        <tr>
+            <td>Стоимость: {{ course.display_price }}</td>
+        </tr>
+        <tr>
+            <td>Период обучения: {{ course.start_date }} - {{ course.end_date }}</td>
+        </tr>
+    </table>
+</div>
+{% endfor %}
+{% else %}
+        <a href="{% url 'course_list' %}">Вернуться к каталогу</a>
+        <h1>Ничего не найдено.</h1>
+    {% endif %}
+
+{% endblock %}
+

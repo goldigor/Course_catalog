@@ -1,0 +1,9 @@
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+<h1>Введите параметры поиска:</h1>
+<form method="POST" class="course-form">{% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="save btn btn-default">Поиск</button>
+</form>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+<div class="course">
+    <table>
+        <tr>
+            <td rowspan="4">
+                <img src={{ course.photo.url}} alt="">
+            </td>
+            <td>
+                <h1>
+                    <a href="{% url 'course_detail' pk=course.pk %}">{{ course.title }}</a>
+                    <a class="btn btn-default" href="{% url 'course_edit' pk=course.pk %}"><span
+                            class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="btn btn-default" href="{% url 'course_delete' pk=course.pk %}"><span
+                            class="glyphicon glyphicon-trash"></span></a>
+                </h1>
+            </td>
+        </tr>
+        <tr>
+            <td>Стоимость: {{ course.display_price }}</td>
+        </tr>
+        <tr>
+            <td>Период обучения: {{ course.start_date }} - {{ course.end_date }}</td>
+        </tr>
+        <tr>
+            <td>Описание: {{ course.text }}</td>
+        </tr>
+    </table>
+</div>
+{% endblock %}
