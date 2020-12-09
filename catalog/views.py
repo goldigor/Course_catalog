@@ -59,14 +59,6 @@ def course_search(request):
             search_start_date = form.clean()['start_date']
             search_start_date_is_greater_or_equal_to = form.clean()['start_date_is_greater_or_equal_to']
             search_start_date_is_less_or_equal_to = form.clean()['start_date_is_less_or_equal_to']
-            # beginning_of_time  = datetime.strptime('01.01.1900', '%d.%m.%Y')
-            # forever_date = datetime.strptime('01.01.3000', '%d.%m.%Y')
-            # s_date = search_start_date or search_start_date_is_greater_or_equal_to or beginning_of_time.strftime('%Y-%m-%d')
-            # e_date = search_start_date or search_start_date_is_less_or_equal_to or forever_date.strftime('%Y-%m-%d')
-            # courses = Course.objects.filter(title__icontains=search_title,
-            #                                 text__icontains=search_description,
-            #                                 start_date__range=[s_date, e_date]
-            #                                 ).order_by('published_date')
             filter_parameters = {}
             if search_title:
                 filter_parameters['title__icontains'] = search_title
