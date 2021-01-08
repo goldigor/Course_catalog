@@ -7,6 +7,7 @@ from mysite import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('catalog.urls')),
+    # url('accounts/', include('django.contrib.auth.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

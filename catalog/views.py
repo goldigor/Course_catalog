@@ -5,7 +5,8 @@ from .forms import CourseForm
 from django.shortcuts import redirect
 from .forms import SearchForm
 from datetime import datetime
-
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
 
 def course_list(request):
     courses = Course.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -75,3 +76,17 @@ def course_search(request):
     else:
         form = SearchForm()
     return render(request, 'catalog/course_search.html', {'form': form})
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            default_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=default_password)
+            login(request, user)
+            return redirect('course_list')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/signup.html', {'form': form})

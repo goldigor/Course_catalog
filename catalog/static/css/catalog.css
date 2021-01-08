@@ -30,7 +30,7 @@ h1, h2, h3, h4 {
     float: right;
 }
 
-.course-form textarea, .course-form input {
+.course-form textarea, .course-form input, .login-form, .signup-form {
     width: 100%;
 }
 
